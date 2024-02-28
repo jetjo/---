@@ -4,18 +4,16 @@
     <title>innerHTML安全性</title>
   </head>
   <body>
-    <p><b> innerHTML不会执行script标签中的脚本,但可能导致事件处理程序的执行; </b></p>
     <div id="example"></div>
     <script>
       const box = document.getElementById('example')
       //   box.innerHTML = /* HTML */ `${'<'}script>alert("Hello World")${'<'}/script>`
       box.innerHTML = /* HTML */ `<img src="x" onerror="alert('恶意脚本!!!')" />`
     </script>
-    <p>
-      <b>
-        可以使用`Element.setHTML`方法解决,
-        但是该方法目前(2024)主流浏览器还未支持,并且只能在HTTPS协议下生效.
-      </b>
-    </p>
+    <!-- prettier-ignore -->
+    <p><b><pre>
+  innerHTML不会执行script标签中的脚本,但可能导致事件处理程序的执行;
+可以使用`Element.setHTML`方法解决,
+但是该方法目前(2024)主流浏览器还未支持,并且只能在HTTPS协议下生效.</pre></b></p>
   </body>
 </html>

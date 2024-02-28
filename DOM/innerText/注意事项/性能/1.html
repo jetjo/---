@@ -8,12 +8,11 @@
   </style>
 </head>
 <body>
-  <!-- prettier-ignore --><b><pre>
+  <!-- prettier-ignore -->
+  <p><b><pre>
     innerText在被读取时会引发页面的回流(`Reflow`),
 原因是获取元素的innerText时还要根据样式来判断元素的可见性,
-(样式上不可见的子节点的文本是不被包含的.);
-而回流会进行大量计算.
-</pre></b>
+(样式上不可见的子节点的文本是不被包含的.);而回流会进行大量计算.</pre></b></p>
   <div id="eg"><span class="i-b v-h">Hello</span>the <span class="i-b">world!</span></div>
   <script>
     const box = document.getElementById('eg')
