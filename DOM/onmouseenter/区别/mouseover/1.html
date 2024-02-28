@@ -1,0 +1,22 @@
+<head>
+  <title>mouseover与mouseenter的区别</title>
+  <style>
+    /* prettier-ignore */
+    div { border: 5px solid #53d70c; padding: 5em; }
+    /* prettier-ignore */
+    p#b3 { border: 5px solid #dfea0a; padding: 1em; }
+  </style>
+</head>
+<body>
+  <div id="b1">
+    <div id="b2">
+      <p id="b3">Hello the World!</p>
+    </div>
+  </div>
+  <script src="./1.js"></script>
+  <!-- prettier-ignore -->
+  <p><b><pre>
+mouseenter事件不会冒泡, 从子节点返回父节点, 父节点不会重新触发; 行为与css的:hover伪类类似.
+mouseover事件会冒泡, 从子节点返回父节点, 父节点会重新触发.
+  <!-- prettier-ignore --></pre></b></p>
+</body>
