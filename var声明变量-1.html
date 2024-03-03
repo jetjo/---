@@ -1,0 +1,8 @@
+<script>
+  var a = 1
+  function func() {
+    console.log(a, 'a') // 遮蔽了外层作用域的a???
+    var a = 2
+  }
+  func()
+</script>
