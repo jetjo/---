@@ -1,0 +1,24 @@
+<script>
+  // prettier-ignore
+  const obj = { name: 'forof-1', age: 20 }
+  function iterateThis() {
+    // prettier-ignore
+    const keys = Object.keys(this), _this = this
+    let index = 0
+    return {
+      next() {
+        const key = keys[index++]
+        // prettier-ignore // return { value: [key, this[key]], done: index > keys.length }
+        return { value: [key, _this[key]], done: index > keys.length }
+      }
+      // prettier-ignore //   [Symbol.iterator]() { return _this; } // { return this; }
+    }
+  }
+  const iterateProxy = new Proxy(obj, {
+    get(target, key, receiver) {
+      if (key === Symbol.iterator) return iterateThis
+      return Reflect.get(target, key, receiver)
+    }
+  })
+  for (const [key, value] of iterateProxy) console.log(key, value)
+</script>
