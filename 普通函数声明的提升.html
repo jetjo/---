@@ -1,0 +1,19 @@
+<script>
+  var a = 1
+  function func() {
+    console.log(a, 'a')
+    // 报错, 可见普通函数和ES6新增的`let/const`一样拥有块级作用域,
+    //  如果处于块作用域中, 只能提升到块顶部, 不能提升到外层的函数作用域中;
+    //  和`let/const`不同的是, `let/const`不会提升,而是在块的顶部到声明语句前这一区域形成死区
+    // ordinaryFunc()
+    if (true) {
+      ordinaryFunc() // 不同于var, 不仅函数名会提升, 整个函数体也会提升
+      var a = 8
+      function ordinaryFunc() {
+        // console.log('我被提升到了块作用域外面, 函数作用域的顶部!')
+        console.log('我仅被提升到了块作用域外面')
+      }
+    }
+  }
+  func()
+</script>
