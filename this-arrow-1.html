@@ -1,0 +1,10 @@
+<script type="module">
+// <script>
+    // "use strict"; // 非模块环境下, 开启严格模式, `arrowFunc`中的`this`仍然是`window`!!!
+    console.log(this);
+    const arrowFunc = () => {
+        console.log(this);
+    }
+    arrowFunc.apply({a: 1})
+    new arrowFunc() // TypeError: arrowFunc is not a constructor
+</script>
