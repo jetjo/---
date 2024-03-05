@@ -1,0 +1,20 @@
+<!-- this-bound-2 -->
+<script type="module">
+    function oF() {
+        console.log("[普通函数]: ", this);
+    }
+    printThis(oF);
+
+    const arrow = () => {
+        console.log("[箭头函数]: ", this);
+    }
+    printThis(arrow);
+
+    function printThis(f) {
+     const bound = f.bind({a: 1});
+     
+     bound.call({"name": 'call'});
+
+     new bound();
+   }
+</script>
