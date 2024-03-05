@@ -1,0 +1,12 @@
+<style>
+    div { width: 500px; height: 500px; background-color: #6af990; margin-top: 10px; }
+    .prevent { background-color: #f80202; }
+</style>
+<div class="default"></div>
+<div class="prevent"></div>
+<script>
+    const preventDiv = document.querySelector('.prevent');
+    preventDiv.addEventListener('touchstart', (e) => {
+        e.preventDefault()
+    })
+</script>
