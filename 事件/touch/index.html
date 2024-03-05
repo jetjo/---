@@ -1,0 +1,17 @@
+<!-- 此`script`节点会成为`head`标签的子节点 -->
+<script>
+    window.addEventListener('load', () => {
+        // const eventTarget = document; // 没有名称中包含`touch`的成员,为啥
+        // const eventTarget = document.documentElement; // 没有名称中包含`touch`的成员,为啥
+        // const eventTarget = document.getElementById('app') // 没有名称中包含`touch`的成员,为啥
+        // console.log(eventTarget);
+        const eventTarget = window;
+        const touchKeys = Object.keys(eventTarget).filter(key => /touch/i.test(key));
+        if(touchKeys.length === 0) alert('请在移动端浏览器打开!')
+        console.log(touchKeys);
+    })
+</script>
+
+<body>
+    <div id='app'></div>
+</body>
