@@ -1,0 +1,16 @@
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <style>
+        div { height: 100px; background-color: red; }
+        p { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+        p span, p b { border: 1px solid black; }
+    </style>
+    <script type="module">
+        import printTouch from './printTouches.js'
+        const eventName = window.location.hash.slice(1)||'touchstart'
+        window.document.title = eventName
+        printTouch(eventName)
+    </script>
+</head>
+<div></div>
+<p><b>changedTouches</b><b>targetTouches</b><b>touches</b></p>

@@ -1,0 +1,16 @@
+<script>
+    window.addEventListener('touchstart', (e) => {
+        // console.log('touchstart', e);
+        console.log('currentTarget: ', e.currentTarget);
+        setTimeout(() => {
+            console.log('currentTarget: ', e.currentTarget);
+        }, 0);
+        for (const key in e) {
+            // if (Object.hasOwnProperty.call(e, key)) {
+                const element = e[key];
+                if(typeof element !== 'object' || element === window) continue
+                if('length' in element) console.log(key, element)
+            // }
+        }
+    })
+</script>
