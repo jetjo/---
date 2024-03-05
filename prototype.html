@@ -1,0 +1,12 @@
+<script>
+    const arrow = () => { }
+    console.log('箭头函数的prototype: ', arrow.prototype);
+    function oF() { }
+    console.log('普通函数的prototype: ', oF.prototype);
+    const oBF = oF.bind({ a: 1 });
+    console.log('绑定函数的prototype是其目标函数的prototype? ', oF.prototype === oBF.prototype);
+    console.log(new oF().__proto__ === new oBF().__proto__);
+    const m = ({m() {}}).m;
+    console.log(m.prototype);
+    new m(); // TypeError: m is not a constructor
+</script>
