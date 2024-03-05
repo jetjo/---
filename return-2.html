@@ -1,0 +1,23 @@
+<script>
+    console.log((function () {
+        try {
+            // throw new Error() // 不影响返回结果
+            return 'success' // 不影响返回结果
+        } catch (error) {
+            return 'error'
+        } finally {
+            return 'final'
+        }
+    })(), 'finally return ???');
+
+    console.log((function () {
+        try {
+            // return 'success'
+            throw new Error()
+        } catch (error) {
+            return 'error'
+        } finally {
+            console.log('finally block');
+        }
+    })(), 'try return or catch return ???');
+</script>
