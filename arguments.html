@@ -1,0 +1,8 @@
+<script>
+    const arrow = () => { console.log(typeof arguments); }
+    arrow()
+    function oF() { console.log(typeof arguments); }
+    oF()
+    const m = ({m() { console.log(typeof arguments); }}).m;
+    m()
+</script>
