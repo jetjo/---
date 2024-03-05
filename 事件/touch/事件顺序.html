@@ -1,0 +1,30 @@
+<script src='https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js'></script>
+<script>
+    const events = ["touchcancel", "touchend", "touchmove", "touchstart",
+                    "gotpointercapture",
+                    "lostpointercapture",
+                    "pointerdown",
+                    "pointermove",
+                    // "pointerrawupdate", // 在不打印此事件的情况下,
+                    // 可以很明显地在控制台发现: 触摸点在屏幕上移动时, 
+                    // 最初只触发了`pointermove`事件, 
+                    // 但是一旦触发了`touchmove`事件后, 在没有阻止`touchstart`和`touchmove`默认行为的前提下, 
+                    // 无论再怎么持续移动触摸点,
+                    // 也只会触发`touchmove`事件, 不会再触发`pointermove`事件
+                    "pointerup",
+                    "pointercancel",
+                    "pointerover",
+                    "pointerout",
+                    "pointerenter",
+                    "pointerleave",
+                "mousedown", "mousemove", "mouseup", "mouseenter", "mouseleave", "mouseover", "mouseout", "click"]
+for (const event of events) {
+    if (event.includes('move')) {
+        window.addEventListener(event, _.throttle(() => console.log(event), 3000))
+        continue
+    }
+    window.addEventListener(event, () => console.log(event))
+}
+// window.addEventListener('touchmove', e => e.preventDefault(), {passive: false})
+// window.addEventListener('touchstart', e => e.preventDefault(), {passive: false})
+</script>
